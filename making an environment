@@ -1,0 +1,53 @@
+import pygame
+from random import randint
+
+pygame.init()
+screensize = (640, 480)
+surface = pygame.display.set_mode(screensize)
+
+x = 0
+y = 0
+
+vx =randint(-3, 3)
+vy =randint(-3, 3)
+
+
+size1 = (50,50)
+size2 = (640,240)
+lime = (0,255, 200)
+blue = (0,0,255)
+green = (0,255, 0)
+
+
+while(True):
+
+    grass = pygame.Rect((0,240), size2)
+
+
+    pygame.display.flip()
+    
+
+    surface.fill(lime)
+
+    box = pygame.Rect((x,y), size1)
+
+    pygame.draw.rect(surface, blue, box)
+
+    pygame.display.flip()
+
+    
+    
+    x+= vx
+    y+= vy
+
+    if x > 640:
+        vx = -1
+
+    if x < 0:
+        vx = -1
+
+    if y > 240:
+        vy =1
+
+    if y < 0:
+        vy = 1
